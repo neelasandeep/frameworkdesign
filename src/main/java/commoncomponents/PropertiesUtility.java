@@ -22,5 +22,17 @@ public class PropertiesUtility {
 		}
 		return properties.getProperty(key);
 	}
+	public static String getReportProperties(String key) {
+		File src = new File("./src/main/resources/Report.properties");
+		try {
+			FileInputStream fis = new FileInputStream(src);
+
+			properties.load(fis);
+
+		} catch (Exception e) {
+			logger.warn("Unable to load config File", e);
+		}
+		return properties.getProperty(key);
+	}
 
 }

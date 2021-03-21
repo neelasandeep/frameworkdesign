@@ -6,31 +6,40 @@ import org.testng.annotations.Test;
 import pageobjects.ShadowDompages;
 import testbase.BaseTest;
 import testbase.DriverFactory;
+import testbase.ExtentFactory;
 
+public class Testcase1 extends BaseTest {
 
-public class Testcase1 extends BaseTest{
 	@Test
 	public void multipleshadowelements2() {
-		WebDriver driver=DriverFactory.getInstance().getDriver();
+		logger = ExtentFactory.getInstance().getExtent();
+		logger.info("cheking second method");
+		logger.info("second-->" + Thread.currentThread().getId());
+		WebDriver driver = DriverFactory.getInstance().getDriver();
 		ShadowDompages shadowpage = new ShadowDompages(driver);
 		shadowpage.multipleshadowElements();
-		System.out.println("second-->"+Thread.currentThread().getId());
 
 	}
-	@Test
+
+	//@Test
 	public void multipleshadowelements3() {
-		WebDriver driver=DriverFactory.getInstance().getDriver();
+		logger = ExtentFactory.getInstance().getExtent();
+		logger.info("cheking Third method");
+		logger.info("second-->" + Thread.currentThread().getId());
+		WebDriver driver = DriverFactory.getInstance().getDriver();
 		ShadowDompages shadowpage = new ShadowDompages(driver);
 		shadowpage.multipleshadowElements();
-		System.out.println("second-->"+Thread.currentThread().getId());
 
 	}
-	@Test
+
+//	@Test
 	public void multipleshadowelements4() {
-		WebDriver driver=DriverFactory.getInstance().getDriver();
+		logger = ExtentFactory.getInstance().getExtent();
+		logger.info("cheking 4rth method");
+		logger.info("second-->" + Thread.currentThread().getId());
+		WebDriver driver = DriverFactory.getInstance().getDriver();
 		ShadowDompages shadowpage = new ShadowDompages(driver);
 		shadowpage.multipleshadowElements();
-		System.out.println("second-->"+Thread.currentThread().getId());
 
 	}
 
