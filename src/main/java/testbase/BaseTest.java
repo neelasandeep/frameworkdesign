@@ -12,6 +12,7 @@ import commoncomponents.PropertiesUtility;
 import dataconstants.Constants;
 
 public class BaseTest {
+	
 
 	BrowserFactory browserFactory = new BrowserFactory();
     public ExtentTest logger;
@@ -31,6 +32,7 @@ public class BaseTest {
 	@AfterMethod
 	public void tearDown() {
 		DriverFactory.getInstance().closeBrowser();
+		
 	}
 
 }

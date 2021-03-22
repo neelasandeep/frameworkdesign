@@ -11,7 +11,7 @@ public class PropertiesUtility {
 	static Logger logger = Logger.getLogger(PropertiesUtility.class);
 
 	public static String getProperty(String key) {
-		File src = new File("./src/main/resources/Config.properties");
+		File src = new File("./src/test/resources/Config.properties");
 		try {
 			FileInputStream fis = new FileInputStream(src);
 
@@ -23,7 +23,7 @@ public class PropertiesUtility {
 		return properties.getProperty(key);
 	}
 	public static String getReportProperties(String key) {
-		File src = new File("./src/main/resources/Report.properties");
+		File src = new File("./src/test/resources/Report.properties");
 		try {
 			FileInputStream fis = new FileInputStream(src);
 
