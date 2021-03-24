@@ -1,8 +1,8 @@
 package dbUtil;
 
-import java.util.ArrayList;
+import javax.sql.DataSource;
 
 public interface DataBase {
-	public ArrayList<ArrayList<String>> getSqlResultInMap(String sql);
+	public DataSource fromConnectionPool();
 
 }

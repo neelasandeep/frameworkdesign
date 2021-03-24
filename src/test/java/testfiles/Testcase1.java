@@ -8,8 +8,7 @@ import org.testng.annotations.Test;
 
 import commoncomponents.PropertiesUtility;
 import dataconstants.Constants;
-import dbUtil.MYSQLDB;
-import dbUtil.DataBase;
+import dbUtil.CommonDBOperation;
 import pageobjects.ShadowDompages;
 import testbase.BaseTest;
 import testbase.DriverFactory;
@@ -52,13 +51,69 @@ public class Testcase1 extends BaseTest {
 
 	@Test
 	public void dabcheck() throws SQLException {
-		DataBase dbcon = new MYSQLDB();
-		ArrayList<ArrayList<String>> hm = dbcon.getSqlResultInMap(PropertiesUtility.getProperty(Constants.DBQUERY));
-		for (int i = 0; i < hm.size(); i++) {
-			for (int j = 0; j < hm.get(i).size(); j++)
-				System.out.println(hm.get(i).get(j));
-		}
 
+		CommonDBOperation dbcon = new CommonDBOperation();
+		ArrayList<String> result = dbcon.getEmployeeDetailsfromDB(PropertiesUtility.getProperty(Constants.DBQUERY));
+		System.out.println(result);
+		//Assert.assertTrue(result.contains("sandeep"));
 	}
+	@Test
+	public void dabcheck1() throws SQLException {
+
+		CommonDBOperation dbcon = new CommonDBOperation();
+		ArrayList<String> result = dbcon.getEmployeeDetailsfromDB(PropertiesUtility.getProperty(Constants.DBQUERY));
+		System.out.println(result);
+		//Assert.assertTrue(result.contains("sandeep"));
+	}
+	@Test
+	public void dabcheckf() throws SQLException {
+
+		CommonDBOperation dbcon = new CommonDBOperation();
+		ArrayList<String> result = dbcon.getEmployeeDetailsfromDB(PropertiesUtility.getProperty(Constants.DBQUERY));
+		System.out.println(result);
+		//Assert.assertTrue(result.contains("sandeep"));
+	}
+	@Test
+	public void dabcheckff() throws SQLException {
+
+		CommonDBOperation dbcon = new CommonDBOperation();
+		ArrayList<String> result = dbcon.getEmployeeDetailsfromDB(PropertiesUtility.getProperty(Constants.DBQUERY));
+		System.out.println(result);
+		//Assert.assertTrue(result.contains("sandeep"));
+	}
+	@Test
+	public void dabcheckfff() throws SQLException {
+
+		CommonDBOperation dbcon = new CommonDBOperation();
+		ArrayList<String> result = dbcon.getEmployeeDetailsfromDB(PropertiesUtility.getProperty(Constants.DBQUERY));
+		System.out.println(result);
+		//Assert.assertTrue(result.contains("sandeep"));
+	}
+
+	@Test
+	public void dabcheck5() throws SQLException, InterruptedException {
+	
+		CommonDBOperation dbcon = new CommonDBOperation();
+		ArrayList<String> result = dbcon.getEmployeeDetailsfromDB(PropertiesUtility.getProperty(Constants.DBQUERY));
+		System.out.println(result);
+		//Assert.assertTrue(result.contains("sandeep"));
+	}
+	@Test
+	public void dabcheck6() throws SQLException, InterruptedException {
+      
+		CommonDBOperation dbcon = new CommonDBOperation();
+		ArrayList<String> result = dbcon.getEmployeeDetailsfromDB(PropertiesUtility.getProperty(Constants.DBQUERY));
+		System.out.println(result);
+		//Assert.assertTrue(result.contains("sandeep"));
+	}
+	@Test
+	public void dabcheck7() throws SQLException, InterruptedException {
+	
+		CommonDBOperation dbcon = new CommonDBOperation();
+		ArrayList<String> result = dbcon.getEmployeeDetailsfromDB(PropertiesUtility.getProperty(Constants.DBQUERY));
+		System.out.println(result);
+		//Assert.assertTrue(result.contains("sandeep"));
+	}
+	
 
 }
