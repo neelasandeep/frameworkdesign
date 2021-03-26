@@ -4,11 +4,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
+
 
 public class PropertiesUtility {
 	static Properties properties = new Properties();
-	static Logger logger = Logger.getLogger(PropertiesUtility.class);
+	private static  Logger logger = LogManager.getLogger("HelloWorld");
 
 	public static String getProperty(String key) {
 		File src = new File("./src/test/resources/Config.properties");
@@ -22,6 +26,7 @@ public class PropertiesUtility {
 		}
 		return properties.getProperty(key);
 	}
+
 	public static String getReportProperties(String key) {
 		File src = new File("./src/test/resources/Report.properties");
 		try {

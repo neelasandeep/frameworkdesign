@@ -6,16 +6,13 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import com.aventstack.extentreports.ExtentTest;
-
 import commoncomponents.PropertiesUtility;
 import dataconstants.Constants;
 
 public class BaseTest {
 	
-
 	BrowserFactory browserFactory = new BrowserFactory();
-    public ExtentTest logger;
+
 	@BeforeMethod
 	public void setup() {
 
@@ -32,7 +29,7 @@ public class BaseTest {
 	@AfterMethod
 	public void tearDown() {
 		DriverFactory.getInstance().closeBrowser();
-		
+
 	}
 
 }

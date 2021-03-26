@@ -7,14 +7,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import commonUIActions.GenericActions;
+import testbase.ExtentFactory;
 
 public class ShadowDompages {
 	WebDriver driver;
 	GenericActions genericActions;
+	ExtentTest logger;
 
 	public ShadowDompages(WebDriver driver) {
-
+		logger=ExtentFactory.getInstance().getExtent();
 		this.driver = driver;
 		genericActions = new GenericActions();
 		PageFactory.initElements(driver, this);
@@ -24,6 +28,7 @@ public class ShadowDompages {
 	WebElement mainelement;
 
 	public void multipleshadowElements() {
+		logger.info("inside the method shadow");
 		WebElement rootelement1 = getShadowDom(mainelement);
 		WebElement subelement1 = rootelement1.findElement(By.tagName("iron-pages"));
 		WebElement subelement2 = subelement1.findElement(By.tagName("shop-home"));
@@ -34,6 +39,7 @@ public class ShadowDompages {
 	}
 
 	private WebElement getShadowDom(WebElement element) {
+		logger.info("inside the method getshadow");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement shadowroot = (WebElement) js.executeScript("return arguments[0].shadowRoot", element);
 		return shadowroot;
