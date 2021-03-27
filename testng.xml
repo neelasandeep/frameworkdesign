@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="methods" thread-count="2" >
-<listeners>
-<listener class-name="listeners.TestListener"></listener>
-</listeners>
-  <test thread-count="2" name="Test">
-    <classes>
-      <class name="testfiles.Testcase1"/>
-   
-    </classes>
-  </test> 
-  <!-- <test name="Test1">
-    <classes>
-      <class name="testfiles.Testcase1"/>
-     
-    </classes>
-  </test>  -->
-  <!-- Test -->
+<suite name="Suite" parallel="methods" thread-count="2">
+	<listeners>
+		<listener class-name="listeners.TestListener"></listener>
+	</listeners>
+	<test  name="Test">
+		<parameter name="testdata" value="UI" />
+		<classes>
+			<class name="testfiles.Testcase1" />
+		</classes>
+	</test>
+	<test  name="JsonDatacheck">
+		<parameter name="testdata" value="jsondata.json" />
+		<classes>
+			<class name="testfiles.Testcase2" />
+		</classes>
+	</test>
+	<test  name="YAMLDatacheck">
+		<parameter name="testdata" value="yamldata.yml" />
+		<classes>
+			<class name="testfiles.Testcase3YML" />
+		</classes>
+	</test>
+
+
+
+	<!-- Test -->
 </suite> <!-- Suite -->

@@ -15,9 +15,9 @@ import javax.sql.DataSource;
 import com.zaxxer.hikari.HikariDataSource;
 
 import commoncomponents.PropertiesUtility;
-import dModel.DatabaseModel;
 import dataconstants.Constants;
 import dataconstants.SqlConstants;
+import dbModel.DatabaseModel;
 
 public class SQLServerDb {
 

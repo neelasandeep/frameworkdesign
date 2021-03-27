@@ -15,7 +15,11 @@ import testbase.DriverFactory;
 
 //@Listeners(listeners.TestListener.class)	
 public class Testcase1 extends BaseTest {
-	
+	@Override
+	public String getTestDataParser() {
+		
+		return "not required for this file";
+	}
 
 	@Test
 	public void multipleshadowelements2() {
@@ -52,5 +56,7 @@ public class Testcase1 extends BaseTest {
 		System.out.println(result);
 
 	}
+
+	
 
 }

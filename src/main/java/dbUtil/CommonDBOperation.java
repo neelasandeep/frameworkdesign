@@ -3,7 +3,7 @@ package dbUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import dModel.DatabaseModel;
+import dbModel.DatabaseModel;
 
 public class CommonDBOperation {
 	MySqlDb con;

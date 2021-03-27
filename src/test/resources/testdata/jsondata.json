@@ -1,0 +1,42 @@
+[
+	{
+		"testCaseName": "checkJsonData",
+		"testData": {
+			"TestDataType": "smoke1",
+			"ContentType": "application/json",
+			"user": "Sandeep",
+			"status": "Active",
+			"nextMission": "YAML"
+		}
+	},
+	{
+		"testCaseName": "checkJsonData2",
+		"testData": {
+			"TestDataType": "smoke1",
+			"ContentType": "application/json2",
+			"user": "Sandeepsecond",
+			"status": "Active",
+			"nextMission": "YAML"
+		}
+	},
+	{
+		"testCaseName": "checkJsonData3",
+		"testData": {
+			"TestDataType": "smoke1",
+			"ContentType": "application/json3",
+			"user": "checkJsonData3",
+			"status": "Active",
+			"nextMission": "YAML"
+		}
+	},
+	{
+		"testCaseName": "checkJsonData4",
+		"testData": {
+			"TestDataType": "smoke1",
+			"ContentType": "application/json4",
+			"user": "checkJsonData4",
+			"status": "Active",
+			"nextMission": "YAML"
+		}
+	}
+]

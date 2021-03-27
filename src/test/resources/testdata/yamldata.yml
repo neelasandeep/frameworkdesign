@@ -1,0 +1,32 @@
+- testCaseName: yamldatacheck
+  testData: &BaseData
+    TestDataType: smoke1
+    ContentType: application/yaml1
+    user: sandeepfromyaml1
+    
+- testCaseName: secondyamlCheck
+  testData:
+    << : *BaseData
+    TestDataType: smoke1
+    ContentType: application/yaml2
+    user: sandeepseconfyaml2
+    check : >
+      select checker
+ 
+- testCaseName: thirdyamlCheck
+  testData:
+    << : *BaseData
+    TestDataType: smoke1
+    ContentType: application/yaml3
+    user: threeeyanl
+    check : >
+      select checker3
+
+- testCaseName: fourthsecondyamlCheck
+  testData:
+    << : *BaseData
+    TestDataType: smoke1
+    ContentType: application/yaml4
+    user: fourthsecondyamlCheck
+    check : >
+      select checker4
