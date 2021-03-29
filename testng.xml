@@ -4,22 +4,30 @@
 	<listeners>
 		<listener class-name="listeners.TestListener"></listener>
 	</listeners>
-	<test  name="Test">
+	<!-- <test thread-count="2" name="Test">
 		<parameter name="testdata" value="UI" />
 		<classes>
-			<class name="testfiles.Testcase1" />
+			<class name="automationScripts.Testcase1" />
+			
 		</classes>
 	</test>
 	<test  name="JsonDatacheck">
 		<parameter name="testdata" value="jsondata.json" />
 		<classes>
-			<class name="testfiles.Testcase2" />
+			<class name="automationScripts.Testcase2" />
 		</classes>
-	</test>
-	<test  name="YAMLDatacheck">
+	</test> -->
+	<!-- <test  name="YAMLDatacheck">
 		<parameter name="testdata" value="yamldata.yml" />
 		<classes>
-			<class name="testfiles.Testcase3YML" />
+			<class name="automationScripts.Testcase3YML" />
+		</classes>
+	</test> -->
+	<test  name="Exceldatacheck">
+		<parameter name="testdata" value="exceldata.xlsx" />
+		<parameter name="sheetname" value="testcase" />
+		<classes>
+			<class name="automationScripts.ExcelTest" />
 		</classes>
 	</test>
 

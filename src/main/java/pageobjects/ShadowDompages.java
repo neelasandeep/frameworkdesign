@@ -9,8 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.aventstack.extentreports.ExtentTest;
 
-import commonUIActions.GenericActions;
-import testbase.ExtentFactory;
+import UIActions.GenericActions;
+import baseFrameWork.ExtentFactory;
 
 public class ShadowDompages {
 	WebDriver driver;
