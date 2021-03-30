@@ -22,9 +22,11 @@ import baseFrameWork.ExtentReportNG;
 
 public class TestListener implements ITestListener {
 
-	static ExtentReports report;
+	static final  ExtentReports report =ExtentReportNG.setupExtentReport();
+	
 	ExtentTest test;
 
+ 
 	public void onTestStart(ITestResult result) {
 		// before each test case
 		test = report.createTest(result.getMethod().getMethodName());
@@ -80,11 +82,7 @@ public class TestListener implements ITestListener {
 	}
 
 	public void onStart(ITestContext context) {
-		try {
-			report = ExtentReportNG.setupExtentReport();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 	}
 
 	public void onFinish(ITestContext context) {
