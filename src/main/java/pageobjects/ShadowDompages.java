@@ -18,13 +18,13 @@ public class ShadowDompages {
 	ExtentTest logger;
 
 	public ShadowDompages(WebDriver driver) {
-		logger=ExtentFactory.getInstance().getExtent();
+		logger = ExtentFactory.getInstance().getExtent();
 		this.driver = driver;
 		genericActions = new GenericActions();
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(tagName = "shop-app")
+	@FindBy(css = "body > shop-app")
 	WebElement mainelement;
 
 	public void multipleshadowElements() {
@@ -33,7 +33,7 @@ public class ShadowDompages {
 		WebElement subelement1 = rootelement1.findElement(By.tagName("iron-pages"));
 		WebElement subelement2 = subelement1.findElement(By.tagName("shop-home"));
 		WebElement rootelement2 = getShadowDom(subelement2);
-		genericActions.click(rootelement2.findElement(By.cssSelector("div:nth-child(3)>shop-button>a")),"button");
+		genericActions.click(rootelement2.findElement(By.cssSelector("div:nth-child(3)>shop-button>a")), "button");
 		// rootelement2.findElement(By.cssSelector("div:nth-child(3)>shop-button>a")).click();
 
 	}

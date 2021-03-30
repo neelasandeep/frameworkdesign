@@ -75,7 +75,7 @@ public class ExcelTestData implements TestData {
 
 	}
 
-	private Sheet setExcelWorkbook(String inputDataFile, FileInputStream file) throws IOException, TestDataException {
+	public Sheet setExcelWorkbook(String inputDataFile, FileInputStream file) throws IOException, TestDataException {
 		if (inputDataFile.endsWith("xlsx")) {
 			workbook = new XSSFWorkbook(file);
 		} else if (inputDataFile.endsWith("xls")) {
@@ -162,7 +162,7 @@ public class ExcelTestData implements TestData {
 		if (sheetRowcount == 0) {
 			throw new TestDataException("Empty sheet in the WorkBook with name: " + sheet.getSheetName());
 		} else {
-			for (int i = 0; i < sheetRowcount; i++) {
+			for (int i = 0; i <=sheetRowcount; i++) {
 				colValues.add(String.valueOf(sheet.getRow(i).getCell(col)));
 			}
 

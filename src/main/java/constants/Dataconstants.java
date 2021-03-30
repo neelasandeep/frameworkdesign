@@ -6,7 +6,7 @@ public class Dataconstants {
 	public static final String YAML="yml";
 	public static final String XLS="xls";
 	public static final String XLSX="xlsx";
-	public static final String HEADER_TAG="$Header$:";
+	public static final String HEADER_TAG="$Header$";
 	
 
 }

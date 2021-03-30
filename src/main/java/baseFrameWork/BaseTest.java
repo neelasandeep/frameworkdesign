@@ -31,7 +31,7 @@ public abstract class BaseTest {
 		String browser = PropertiesUtility.getProperty(ApplicationConstants.BROWSER);
 		String url = PropertiesUtility.getProperty(ApplicationConstants.URL);
 		DriverFactory.getInstance().setDriver(browserFactory.createInstance(browser));
-		driver = DriverFactory.getInstance().getDriver();
+		WebDriver driver = DriverFactory.getInstance().getDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get(url);

@@ -1,9 +1,25 @@
 package UIActions;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
@@ -14,48 +30,45 @@ import baseFrameWork.ExtentFactory;
 
 public class GenericActions {
 	ExtentTest logger;
+	WebDriver driver;
+	static final String DATE = "yyyy/MM/dd";
 
-	// Customized sendkeys method-> To log sendkeys message for every occ.
 	public void sendKeys(WebElement element, String valueToBeSent) {
 		try {
 			logger = ExtentFactory.getInstance().getExtent();
 			element.sendKeys(valueToBeSent);
-			// log success message in exgent report
+
 			logger.log(Status.PASS, "==> Ented value as: " + valueToBeSent);
 		} catch (Exception e) {
-			// log failure in extent
+
 			logger.log(Status.FAIL, "Value enter in field: " + element + " is failed due to exception: " + e);
 		}
 	}
 
-	// custom click method to log every click action in to extent report
-	public void click(WebElement element,String fieldName) {
+	public void click(WebElement element, String fieldName) {
 		try {
 			logger = ExtentFactory.getInstance().getExtent();
-
+			// waitForElementAndThenClick(element);
 			element.click();
-			// log success message in extent report
-			logger.log(Status.PASS, fieldName+"==> Clicked Successfully! ");
+			logger.log(Status.PASS, fieldName + "==> Clicked Successfully! ");
 		} catch (Exception e) {
-			// log failure in extent
-			logger.log(Status.FAIL, "Unable to click on field: " +fieldName +" due to exception: "+e);
+
+			logger.log(Status.FAIL, "Unable to click on field: " + fieldName + " due to exception: " + e);
 		}
 	}
 
-	// clear data from field
-	public void clear(WebElement element,String fieldName) {
+	public void clear(WebElement element, String fieldName) {
 		try {
 			logger = ExtentFactory.getInstance().getExtent();
 			element.clear();
 			Thread.sleep(250);
-			logger.log(Status.PASS,   fieldName+"==> Data Cleared Successfully! ");
+			logger.log(Status.PASS, fieldName + "==> Data Cleared Successfully! ");
 		} catch (Exception e) {
-			logger.log(Status.FAIL, "Unable to clear Data on field: " +fieldName +" due to exception: "+e);
+			logger.log(Status.FAIL, "Unable to clear Data on field: " + fieldName + " due to exception: " + e);
 
 		}
 	}
 
-	// custom mouseHover
 	public void moveToElement(WebElement element, String fieldName) {
 		try {
 			logger = ExtentFactory.getInstance().getExtent();
@@ -63,7 +76,7 @@ public class GenericActions {
 			executor.executeScript("arguments[0].scrollIntoView(true);", element);
 			Actions actions = new Actions(DriverFactory.getInstance().getDriver());
 			actions.moveToElement(element).build().perform();
-			logger.log(Status.PASS, fieldName + fieldName+"==> Mouse hovered Successfully! ");
+			logger.log(Status.PASS, fieldName + fieldName + "==> Mouse hovered Successfully! ");
 			Thread.sleep(1000);
 		} catch (Exception e) {
 			logger.log(Status.FAIL, "Unable to hover mouse on field: " + fieldName + " due to exception: " + e);
@@ -71,13 +84,12 @@ public class GenericActions {
 		}
 	}
 
-	// check if element is Present
 	public boolean isElementPresent(WebElement element, String fieldName) {
 		boolean flag = false;
 		try {
 			logger = ExtentFactory.getInstance().getExtent();
 			flag = element.isDisplayed();
-			logger.log(Status.PASS, fieldName + fieldName+"==> Presence of field is: "+ flag);
+			logger.log(Status.PASS, fieldName + fieldName + "==> Presence of field is: " + flag);
 			return flag;
 		} catch (Exception e) {
 			logger.log(Status.FAIL,
@@ -86,7 +98,6 @@ public class GenericActions {
 		}
 	}
 
-	// Select dropdown value value by visibleText
 	public void selectDropDownByVisibleText(WebElement element, String fieldName, String ddVisibleText)
 			throws Throwable {
 		try {
@@ -94,28 +105,23 @@ public class GenericActions {
 			Select s = new Select(element);
 			s.selectByVisibleText(ddVisibleText);
 			logger.log(Status.PASS,
-					fieldName + fieldName+"==> Dropdown Value Selected by visible text: "+ ddVisibleText);
+					fieldName + fieldName + "==> Dropdown Value Selected by visible text: " + ddVisibleText);
 		} catch (Exception e) {
-			logger.log(Status.FAIL,
-					"Dropdown value not selected for field: " + fieldName + "  due to exception: " + e);
+			logger.log(Status.FAIL, "Dropdown value not selected for field: " + fieldName + "  due to exception: " + e);
 		}
 	}
 
-	// Select dropdown value value by value
 	public void selectDropDownByValue(WebElement element, String fieldName, String ddValue) throws Throwable {
 		try {
 			logger = ExtentFactory.getInstance().getExtent();
 			Select s = new Select(element);
 			s.selectByValue(ddValue);
-			logger.log(Status.PASS,
-					fieldName + "==> Dropdown Value Selected by visible text: " + ddValue);
+			logger.log(Status.PASS, fieldName + "==> Dropdown Value Selected by visible text: " + ddValue);
 		} catch (Exception e) {
-			logger.log(Status.FAIL,
-					"Dropdown value not selected for field: " + fieldName + "  due to exception: " + e);
+			logger.log(Status.FAIL, "Dropdown value not selected for field: " + fieldName + "  due to exception: " + e);
 		}
 	}
 
-	// String Asserts
 	public void assertEqualsString(String expvalue, String actualValue, String locatorName) throws Throwable {
 		try {
 			if (actualValue.equals(expvalue)) {
@@ -131,7 +137,6 @@ public class GenericActions {
 		}
 	}
 
-	// Get text from webelement
 	public String getText(WebElement element, String fieldName) {
 		String text = "";
 		try {
@@ -146,4 +151,208 @@ public class GenericActions {
 		return text;
 	}
 
+	public Wait<WebDriver> fluentWait() {
+		driver = DriverFactory.getInstance().getDriver();
+		return new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(60))
+				.pollingEvery(Duration.ofSeconds(10)).ignoring(NoSuchElementException.class)
+				.ignoring(ElementNotVisibleException.class).ignoring(Exception.class);
+
+	}
+
+	public void waitForElementAndThenClick(WebElement element) {
+		Wait<WebDriver> waitFor = fluentWait();
+		WebElement ele = waitFor.until(ExpectedConditions.elementToBeClickable(element));
+
+		ele.click();
+	}
+
+	public void waitForElementAndThenClear(WebElement element) {
+		Wait<WebDriver> waitFor = fluentWait();
+		WebElement ele = waitFor.until(ExpectedConditions.elementToBeClickable(element));
+		ele.clear();
+	}
+
+	public void waitForElementSetFocusAndClear(WebElement element) {
+		Wait<WebDriver> waitFor = fluentWait();
+		WebElement ele = waitFor.until(ExpectedConditions.elementToBeClickable(element));
+		ele.click();
+		ele.clear();
+	}
+
+	public void waitForElementAndUpdateText(WebElement element, String text) {
+
+		Wait<WebDriver> waitFor = fluentWait();
+		WebElement ele = waitFor.until(ExpectedConditions.elementToBeClickable(element));
+		ele.clear();
+		ele.sendKeys(text);
+	}
+
+	public boolean verifyElementIsClickable(WebElement element) {
+
+		Wait<WebDriver> waitFor = fluentWait();
+		waitFor.until(ExpectedConditions.elementToBeClickable(element));
+		return true;
+	}
+
+	public String getTodayDateAsString() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern(DATE);
+		LocalDateTime localdate = LocalDateTime.now();
+		return dtf.format(localdate);
+	}
+
+	public void setTheFieldValueDropdownArrowEnter(WebElement element, String text) {
+		fluentWait().until(ExpectedConditions.elementToBeClickable(element));
+		element.click();
+		element.clear();
+		element.sendKeys(text);
+		waitForBrowser(2);
+		element.sendKeys(Keys.DOWN, Keys.ENTER);
+	}
+
+	public String waitForElementAndThenGetText(WebElement element) {
+		WebElement ele = fluentWait().until(ExpectedConditions.visibilityOf(element));
+		return ele.getText();
+	}
+
+	public void waitForElementAndSelectTheDropdownByVisibleText(WebElement element, String text) {
+		WebElement ele = fluentWait().until(ExpectedConditions.elementToBeClickable(element));
+		Select select = new Select(ele);
+		select.selectByVisibleText(text);
+	}
+
+	public void waitForElementAndSelectTheDropdownByValue(WebElement element, String value) {
+		WebElement ele = fluentWait().until(ExpectedConditions.elementToBeClickable(element));
+		Select select = new Select(ele);
+		select.selectByValue(value);
+	}
+
+	public void waitForElementAndSelectTheDropdownByIndex(WebElement element, int index) {
+		WebElement ele = fluentWait().until(ExpectedConditions.elementToBeClickable(element));
+		Select select = new Select(ele);
+		select.selectByIndex(index);
+	}
+
+	public List<WebElement> waitForElementAndgetOptionsFromComboBox(WebElement element) {
+		WebElement ele = fluentWait().until(ExpectedConditions.elementToBeClickable(element));
+		return new Select(ele).getOptions();
+
+	}
+
+	public boolean wiatForElementAndCheckForVisibiltyOfElements(WebElement element) {
+		WebElement ele = fluentWait().until(ExpectedConditions.visibilityOf(element));
+		return ele.isDisplayed();
+	}
+
+	public void waitForBrowser(int time) {
+		try {
+			Thread.sleep(time * 1000);
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	public void swithToNewTabCloseTheCurrentTab() {
+		WebDriver driver = DriverFactory.getInstance().getDriver();
+		String currentWindow = driver.getWindowHandle();
+		waitForBrowser(2);
+		Set<String> tabs = driver.getWindowHandles();
+		tabs.remove(currentWindow);
+		driver.close();
+		driver.switchTo().window((String) tabs.toArray()[0]);
+
+	}
+
+	public void switchToMaximumNumberWindow(WebDriver driver) {
+		Set<String> tabs = driver.getWindowHandles();
+		String val = String.valueOf(tabs.size() - 1);
+		driver.switchTo().window(val);
+	}
+
+	public void switchToSpecificWindow(WebDriver driver, int val) {
+		Set<String> tabs = driver.getWindowHandles();
+		driver.switchTo().window((String) tabs.toArray()[val]);
+
+	}
+
+	public String generateRandomUID() {
+		return RandomStringUtils.randomNumeric(6);
+	}
+
+	public void waitForFrameAndMoveToFrame(String frameId, WebDriver driver) {
+		fluentWait().until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameId));
+
+	}
+
+	public boolean isTextpresent(WebElement element, String text) {
+		WebElement ele = fluentWait().until(ExpectedConditions.visibilityOf(element));
+		return ele.getText().equalsIgnoreCase(text);
+	}
+
+	public boolean verifyIsSelect(WebElement element) {
+		WebElement ele = fluentWait().until(ExpectedConditions.visibilityOf(element));
+		return ele.isSelected();
+	}
+
+	public void doubleClick(WebElement element) {
+		Actions action = new Actions(DriverFactory.getInstance().getDriver());
+		action.moveToElement(element).doubleClick().build().perform();
+
+	}
+
+	public void rightClick(WebElement element) {
+		Actions action = new Actions(DriverFactory.getInstance().getDriver());
+		action.moveToElement(element).contextClick(element).perform();
+
+	}
+
+	public String randomString() {
+
+		return RandomStringUtils.randomAlphanumeric(10);
+	}
+
+	public void acceptAlert(WebDriver driver) {
+		fluentWait().until(ExpectedConditions.alertIsPresent());
+		driver.switchTo().alert().accept();
+	}
+
+	public void dismissAlert(WebDriver driver) {
+		fluentWait().until(ExpectedConditions.alertIsPresent());
+		driver.switchTo().alert().dismiss();
+	}
+
+	public String acceptAlertGetMessage(WebDriver driver) {
+		String alertText;
+		fluentWait().until(ExpectedConditions.alertIsPresent());
+		Alert alert = driver.switchTo().alert();
+		alertText = alert.getText();
+		alert.accept();
+		return alertText;
+	}
+
+	public void scrollToElement(WebDriver driver, WebElement element) {
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+	}
+
+	public void scrollToEndOfpage(WebDriver driver, WebElement element) {
+		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,250)", element);
+	}
+
+	public void scrollToTopOfpage(WebDriver driver, WebElement element) {
+		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,-250)", element);
+	}
+
+	public void javaScriptClick(WebElement element, WebDriver driver) {
+		WebElement ele = fluentWait().until(ExpectedConditions.elementToBeClickable(element));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click", ele);
+
+	}
+
+	public List<String> gettextFromListOFWebElements(List<WebElement> WebElements) {
+		List<String> values = new ArrayList<>();
+		for (WebElement ele : WebElements) {
+			values.add(ele.getText());
+		}
+		return values;
+	}
 }
