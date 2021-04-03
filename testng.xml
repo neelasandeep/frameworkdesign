@@ -4,32 +4,40 @@
 	<listeners>
 		<listener class-name="listeners.TestListener"></listener>
 	</listeners>
-	<!-- <test thread-count="2" name="Test">
+	<test  name="Test">
 		<parameter name="testdata" value="UI" />
 		<classes>
 			<class name="automationScripts.Testcase1" />
 			
 		</classes>
 	</test>
-	<test  name="JsonDatacheck">
+	 <test  name="JsonDatacheck">
 		<parameter name="testdata" value="jsondata.json" />
 		<classes>
 			<class name="automationScripts.Testcase2" />
 		</classes>
-	</test> -->
-	<!-- <test  name="YAMLDatacheck">
+	</test>
+	<test  name="YAMLDatacheck">
 		<parameter name="testdata" value="yamldata.yml" />
 		<classes>
 			<class name="automationScripts.Testcase3YML" />
 		</classes>
-	</test> -->
+	</test>
 	<test  name="Exceldatacheck">
 		<parameter name="testdata" value="exceldata.xlsx" />
 		<parameter name="sheetname" value="testcase" />
 		<classes>
 			<class name="automationScripts.ExcelTest" />
 		</classes>
+	</test> 
+	<test  name="bddapi">
+		
+		<classes>
+			<class name="apitestRunner.TestRunner" />
+		</classes>
 	</test>
+	
+	
 
 
 
