@@ -19,18 +19,21 @@ import com.aventstack.extentreports.Status;
 import baseFrameWork.DriverFactory;
 import baseFrameWork.ExtentFactory;
 import baseFrameWork.ExtentReportNG;
+import cucumber.api.Scenario;
 
 public class TestListener implements ITestListener {
 
-	static final  ExtentReports report =ExtentReportNG.setupExtentReport();
+	 public static   ExtentReports report =ExtentReportNG.setupExtentReport();
 	
 	ExtentTest test;
 
  
-	public void onTestStart(ITestResult result) {
+	public void onTestStart(ITestResult result ) {
 		// before each test case
+		if(result.getMethod().getMethodName()!="feature") {
 		test = report.createTest(result.getMethod().getMethodName());
 		ExtentFactory.getInstance().setExtent(test);
+		}
 	}
 
 	public void onTestSuccess(ITestResult result) {
@@ -39,11 +42,12 @@ public class TestListener implements ITestListener {
 		ExtentFactory.getInstance().removeExtentObject();
 	}
 
-	public void onTestFailure(ITestResult result) {
+	public void onTestFailure(ITestResult result,Scenario scenario) {
+	
 		ExtentFactory.getInstance().getExtent().log(Status.FAIL,
 				"Test Case: " + result.getMethod().getMethodName() + " is Failed.");
 		ExtentFactory.getInstance().getExtent().log(Status.FAIL, result.getThrowable());
-
+		
 		// add screenshot for failed test.
 		File src = ((TakesScreenshot) DriverFactory.getInstance().getDriver()).getScreenshotAs(OutputType.FILE);
 		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyy HH-mm-ss");
