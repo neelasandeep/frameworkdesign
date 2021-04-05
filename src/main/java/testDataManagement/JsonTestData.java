@@ -45,5 +45,16 @@ public class JsonTestData implements TestData {
 				: new Object[0][0];
 
 	}
+	public  synchronized static JsonData getJsondata(String testCaseName) {
+
+		Arrays.asList(testdata).forEach(jsondata -> {
+
+			if (jsondata.getTestCaseName().equals(testCaseName)) {
+				data = jsondata;
+			}
+		});
+		return data;
+
+	}
 
 }

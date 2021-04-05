@@ -1,7 +1,8 @@
 [
 	{
-		"testCaseName": "checkJsonData",
+		"testCaseName": "Scenario",
 		"testData": {
+		    "testname":"Scenario",
 			"TestDataType": "smoke1",
 			"ContentType": "application/json",
 			"user": "Sandeep",
@@ -10,7 +11,7 @@
 		}
 	},
 	{
-		"testCaseName": "checkJsonData2",
+		"testCaseName": "scenario1",
 		"testData": {
 			"TestDataType": "smoke1",
 			"ContentType": "application/json2",
@@ -20,21 +21,106 @@
 		}
 	},
 	{
-		"testCaseName": "checkJsonData3",
+		"testCaseName": "Scenario2",
 		"testData": {
+		    "testname":"Scenario",
 			"TestDataType": "smoke1",
-			"ContentType": "application/json3",
-			"user": "checkJsonData3",
+			"ContentType": "application/json",
+			"user": "Sandeep",
 			"status": "Active",
 			"nextMission": "YAML"
 		}
 	},
 	{
-		"testCaseName": "checkJsonData4",
+		"testCaseName": "scenario3",
 		"testData": {
 			"TestDataType": "smoke1",
-			"ContentType": "application/json4",
-			"user": "checkJsonData4",
+			"ContentType": "application/json2",
+			"user": "Sandeepsecond",
+			"status": "Active",
+			"nextMission": "YAML"
+		}
+	},
+	{
+		"testCaseName": "Scenario4",
+		"testData": {
+		    "testname":"Scenario",
+			"TestDataType": "smoke1",
+			"ContentType": "application/json",
+			"user": "Sandeep",
+			"status": "Active",
+			"nextMission": "YAML"
+		}
+	},
+	{
+		"testCaseName": "scenario5",
+		"testData": {
+			"TestDataType": "smoke1",
+			"ContentType": "application/json2",
+			"user": "Sandeepsecond",
+			"status": "Active",
+			"nextMission": "YAML"
+		}
+	},
+	{
+		"testCaseName": "Scenario6",
+		"testData": {
+		    "testname":"Scenario",
+			"TestDataType": "smoke1",
+			"ContentType": "application/json",
+			"user": "Sandeep",
+			"status": "Active",
+			"nextMission": "YAML"
+		}
+	},
+	{
+		"testCaseName": "scenario7",
+		"testData": {
+			"TestDataType": "smoke1",
+			"ContentType": "application/json2",
+			"user": "Sandeepsecond",
+			"status": "Active",
+			"nextMission": "YAML"
+		}
+	},
+	{
+		"testCaseName": "Scenario8",
+		"testData": {
+		    "testname":"Scenario",
+			"TestDataType": "smoke1",
+			"ContentType": "application/json",
+			"user": "Sandeep",
+			"status": "Active",
+			"nextMission": "YAML"
+		}
+	},
+	{
+		"testCaseName": "scenario9",
+		"testData": {
+			"TestDataType": "smoke1",
+			"ContentType": "application/json2",
+			"user": "Sandeepsecond",
+			"status": "Active",
+			"nextMission": "YAML"
+		}
+	},
+	{
+		"testCaseName": "Scenario10",
+		"testData": {
+		    "testname":"Scenario",
+			"TestDataType": "smoke1",
+			"ContentType": "application/json",
+			"user": "Sandeep",
+			"status": "Active",
+			"nextMission": "YAML"
+		}
+	},
+	{
+		"testCaseName": "scenario11",
+		"testData": {
+			"TestDataType": "smoke1",
+			"ContentType": "application/json2",
+			"user": "Sandeepsecond",
 			"status": "Active",
 			"nextMission": "YAML"
 		}

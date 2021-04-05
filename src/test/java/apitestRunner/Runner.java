@@ -14,14 +14,11 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 )
 
-public class TestRunner  {
+public class Runner  {
 
 static String scenarioName;
 
-//	@DataProvider(parallel = true)
-//	public Object[][] features() {
-//		return super.scenarios();
-//	}
+
 
 	private TestNGCucumberRunner testNGCucumberRunner;
 

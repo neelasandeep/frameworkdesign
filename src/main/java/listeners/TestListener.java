@@ -37,9 +37,11 @@ public class TestListener implements ITestListener {
 	}
 
 	public void onTestSuccess(ITestResult result) {
+		if(result.getMethod().getMethodName()!="feature") {
 		ExtentFactory.getInstance().getExtent().log(Status.PASS,
 				"Test Case: " + result.getMethod().getMethodName() + " is Passed.");
 		ExtentFactory.getInstance().removeExtentObject();
+		}
 	}
 
 	public void onTestFailure(ITestResult result,Scenario scenario) {

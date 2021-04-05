@@ -24,5 +24,6 @@ public class TestDataResource {
 	public static Object[][] getdata(String testCaseName) throws TestDataException {
 		return testData.getdata(testCaseName);
 	}
+	
 
 }
