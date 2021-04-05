@@ -4,7 +4,7 @@
 	<listeners>
 		<listener class-name="listeners.TestListener"></listener>
 	</listeners>
-	<test  name="Test">
+	<!-- <test  name="Test">
 		<parameter name="testdata" value="UI" />
 		<classes>
 			<class name="automationScripts.Testcase1" />
@@ -29,11 +29,11 @@
 		<classes>
 			<class name="automationScripts.ExcelTest" />
 		</classes>
-	</test> 
+	</test>  -->
 	<test  name="bddapi">
 		
 		<classes>
-			<class name="apitestRunner.TestRunner" />
+			<class name="apitestRunner.Runner" />
 		</classes>
 	</test>
 	
