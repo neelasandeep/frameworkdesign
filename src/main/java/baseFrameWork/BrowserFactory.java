@@ -3,6 +3,7 @@ package baseFrameWork;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -34,8 +35,14 @@ public class BrowserFactory {
 		case "ie":
 			InternetExplorerOptions ieOptions = new InternetExplorerOptions();
 			ieOptions.addCommandSwitches("-private");
-			WebDriverManager.iedriver().setup();
+			WebDriverManager.iedriver().driverVersion("10").setup();
 			driver = new InternetExplorerDriver(ieOptions);
+			break;
+		case "edge":
+			//EdgeOptions edgeOptions = new EdgeOptions(); 
+			//edgeOptions.
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
 			break;
 
 		default:

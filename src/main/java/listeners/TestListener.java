@@ -19,7 +19,6 @@ import com.aventstack.extentreports.Status;
 import baseFrameWork.DriverFactory;
 import baseFrameWork.ExtentFactory;
 import baseFrameWork.ExtentReportNG;
-import cucumber.api.Scenario;
 
 public class TestListener implements ITestListener {
 
@@ -44,7 +43,7 @@ public class TestListener implements ITestListener {
 		}
 	}
 
-	public void onTestFailure(ITestResult result,Scenario scenario) {
+	public void onTestFailure(ITestResult result) {
 	
 		ExtentFactory.getInstance().getExtent().log(Status.FAIL,
 				"Test Case: " + result.getMethod().getMethodName() + " is Failed.");
