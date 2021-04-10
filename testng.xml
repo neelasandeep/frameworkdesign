@@ -4,14 +4,14 @@
 	<listeners>
 		<listener class-name="listeners.TestListener"></listener>
 	</listeners>
-	<!-- <test  name="Test">
+	 <!-- <test  name="Test">
 		<parameter name="testdata" value="UI" />
 		<classes>
 			<class name="automationScripts.Testcase1" />
 			
 		</classes>
-	</test>
-	 <test  name="JsonDatacheck">
+	</test> -->
+	<!--	 <test  name="JsonDatacheck">
 		<parameter name="testdata" value="jsondata.json" />
 		<classes>
 			<class name="automationScripts.Testcase2" />

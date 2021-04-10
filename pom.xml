@@ -9,6 +9,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<cucumberversion>6.10.0</cucumberversion>
 
 	</properties>
 	<dependencies>
@@ -107,21 +108,27 @@
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>4.2.3</version>
+			<version>${cucumberversion}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-core</artifactId>
-			<version>4.2.3</version>
+			<version>${cucumberversion}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>${cucumberversion}</version>
 
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-testng -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-testng</artifactId>
-			<version>4.2.3</version>
+			<version>${cucumberversion}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
@@ -129,7 +136,7 @@
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
 			<version>4.3.3</version>
-			
+
 		</dependency>
 
 	</dependencies>
