@@ -4,6 +4,10 @@ public class ApplicationConstants {
 	
 	public static final String BROWSER="browsername";
 	public static final String URL="url";
+	public static final String DEV01="dev01";
+	public static final String DEV02="dev02";
+	public static final String QA02="qa02";
+	public static final String PPE01="ppe01";
 	public static final String ENV="executionEnvironment";
 	public static final String SERVER="dbServerIP";
 	public static final String PORT="dbPort";
