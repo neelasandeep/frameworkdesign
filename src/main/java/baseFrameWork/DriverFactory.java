@@ -9,6 +9,9 @@ public class DriverFactory implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private DriverFactory() {
+		if(instance!=null) {
+			throw new RuntimeException("this is not vorrect way of creating Object");
+		}
 	}
 
 	private static DriverFactory instance = new DriverFactory();

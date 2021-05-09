@@ -19,7 +19,7 @@ import constants.SqlConstants;
 import models.dbModel.DatabaseModel;
 import utilities.PropertiesUtility;
 
-public class MySqlDb {
+public class MySqlDb implements DataBase {
 	MySqlDb() {
 	}
 
@@ -59,7 +59,7 @@ public class MySqlDb {
 		}
 	}
 
-	public static DataSource fromConnectionPool() {
+	public  DataSource fromConnectionPool() {
 		return dataSource;
 	}
 

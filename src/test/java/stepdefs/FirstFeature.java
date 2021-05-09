@@ -1,5 +1,8 @@
 package stepdefs;
 
+import java.util.List;
+import java.util.Map;
+
 import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
@@ -8,6 +11,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import apiMethods.UserApi;
 import automationScripts.DependacyInjection;
 import baseFrameWork.ExtentFactory;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -28,6 +32,12 @@ public class FirstFeature {
 
 	public FirstFeature(DependacyInjection di) {
 		this.di = di;
+	}
+	@Given("given below is a table:")
+	public void given_below_is_a_table(DataTable dataTable) {
+	  List<Map<String,String>> map= dataTable.asMaps();
+	  System.out.println(map);
+	  di.setSum("10");
 	}
 
 	@Given("when the user had the {string}")

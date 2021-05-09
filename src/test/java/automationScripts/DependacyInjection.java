@@ -10,4 +10,10 @@ public String getSum() {
 public void setSum(String sum) {
 	this.sum = sum;
 }
+
+public ExcelTest getExcel() {
+	return new ExcelTest();
+}
+
+
 }

@@ -1,10 +1,14 @@
 #Author: sandeep_neela@epam.com
 Feature: First feature File
-
+  
+ 
+    
+  
   Scenario: get call test
     Given when the user had the 'apidata.json'
     When method GET with 'https://reqres.in/api/users/2' to validate 'Scenario'
     Then status 200
+
 
   @posttag
   Scenario: post request

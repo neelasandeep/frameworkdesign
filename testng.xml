@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="methods" thread-count="2">
+<suite name="Suite" parallel="classes" thread-count="2">
 	<listeners>
 		<listener class-name="listeners.TestListener"></listener>
 	</listeners>
-	 <!-- <test  name="Test">
+	 <test  name="Test">
 		<parameter name="testdata" value="UI" />
 		<classes>
 			<class name="automationScripts.Testcase1" />
-			
+			<!-- <class name="automationScripts.parallelUIcheck" /> -->
 		</classes>
-	</test> -->
-	<!--	 <test  name="JsonDatacheck">
+	</test>
+		<!--  <test  name="JsonDatacheck">
 		<parameter name="testdata" value="jsondata.json" />
 		<classes>
 			<class name="automationScripts.Testcase2" />
 		</classes>
-	</test>
-	<test  name="YAMLDatacheck">
+	</test> -->
+	<!-- <test  name="YAMLDatacheck">
 		<parameter name="testdata" value="yamldata.yml" />
 		<classes>
 			<class name="automationScripts.Testcase3YML" />
@@ -29,13 +29,13 @@
 		<classes>
 			<class name="automationScripts.ExcelTest" />
 		</classes>
-	</test>  -->
+	</test> 
 	<test  name="bddapi">
 		
 		<classes>
 			<class name="apitestRunner.Runner" />
 		</classes>
-	</test>
+	</test> -->
 	
 	
 
