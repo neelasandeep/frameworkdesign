@@ -158,7 +158,7 @@
 						<url>${url}</url>
 					</systemPropertyVariables>
 					<suiteXmlFiles>
-						<suiteXmlFile>${suitexmlfile}</suiteXmlFile>
+						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
