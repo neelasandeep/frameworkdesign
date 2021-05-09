@@ -19,7 +19,7 @@ import constants.SqlConstants;
 import models.dbModel.DatabaseModel;
 import utilities.PropertiesUtility;
 
-public class MySqlDb implements DataBase {
+ class MySqlDb implements DataBase {
 	MySqlDb() {
 	}
 
