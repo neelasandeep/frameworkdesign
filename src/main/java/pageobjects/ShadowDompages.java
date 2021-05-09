@@ -35,7 +35,7 @@ public class ShadowDompages {
 		WebElement rootelement2 = getShadowDom(subelement2);
 		genericActions.click(rootelement2.findElement(By.cssSelector("div:nth-child(3)>shop-button>a")), "button");
 		// rootelement2.findElement(By.cssSelector("div:nth-child(3)>shop-button>a")).click();
-
+       System.out.println("build succeded");
 	}
 
 	private WebElement getShadowDom(WebElement element) {
