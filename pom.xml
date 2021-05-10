@@ -158,7 +158,7 @@
 						<Environment>${Environment}</Environment>
 					</systemPropertyVariables>
 					<suiteXmlFiles>
-						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+						<suiteXmlFile>${suiteXmlFile}.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
