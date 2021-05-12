@@ -35,7 +35,11 @@ public abstract class BaseTest {
 		String browser = PropertiesUtility.getProperty(ApplicationConstants.BROWSER);
 		//String url = PropertiesUtility.getProperty(ApplicationConstants.URL);
 		String browser1 = PropertiesUtility.getProperty(ApplicationConstants.SAFARI);
+		String dbname = PropertiesUtility.getProperty(ApplicationConstants.DBNAME2);
+		String dbaddress = PropertiesUtility.getProperty(ApplicationConstants.DBADDRESS);
 		System.out.println(browser1);
+		System.out.println(dbname);
+		System.out.println(dbaddress);
 		String env=System.getProperty("Environment");
 		String url=getEnvUrl(env);
 		DriverFactory.getInstance().setDriver(browserFactory.createInstance(browser));
