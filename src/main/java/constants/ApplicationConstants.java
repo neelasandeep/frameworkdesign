@@ -17,5 +17,6 @@ public class ApplicationConstants {
 	public static final String DBQUERY="dataquery";
 	public static final String TESTINGTYPE="testingtype";
 	public static final String APIQUERY="apiquery";
+	public static final String SAFARI="safari";
 
 }
