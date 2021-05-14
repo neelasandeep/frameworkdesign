@@ -8,18 +8,18 @@ import org.testng.Assert;
 import com.aventstack.extentreports.ExtentTest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import apiMethods.UserApi;
-import automationScripts.DependacyInjection;
-import baseFrameWork.ExtentFactory;
+import apimethods.UserApi;
+import automationscripts.DependacyInjection;
+import baseframework.ExtentFactory;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import listeners.TestListener;
-import models.testDataModel.JsonData;
-import testDataManagement.JsonTestData;
-import testDataManagement.TestDataResource;
+import models.testdatamodel.JsonData;
+import testdatamanagement.JsonTestData;
+import testdatamanagement.TestDataResource;
 
 public class FirstFeature {
 	ExtentTest logger;

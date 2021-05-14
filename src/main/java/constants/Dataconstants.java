@@ -1,6 +1,7 @@
 package constants;
 
 public class Dataconstants {
+	private Dataconstants() {}
 	public static final String TESTDATA_DIRECTORY = "testdata";
 	public static final String JSON = "json";
 	public static final String YAML="yml";

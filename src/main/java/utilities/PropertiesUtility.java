@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 public class PropertiesUtility {
 	static Properties properties = new Properties();
+	private PropertiesUtility() {}
 	private static Logger logger = LogManager.getLogger();
 
 	public static String getProperty(String key) {
@@ -35,7 +36,7 @@ public class PropertiesUtility {
 		return properties.getProperty(key);
 	}
 
-	private static void loadSourceFile(File src) throws FileNotFoundException, IOException {
+	private static void loadSourceFile(File src) throws  IOException {
 		FileInputStream fis = new FileInputStream(src);
 
 		properties.load(fis);

@@ -2,6 +2,7 @@ package constants;
 
 public class ApplicationConstants {
 	
+	private ApplicationConstants() {}
 	public static final String BROWSER="browsername";
 	public static final String URL="url";
 	public static final String DEV01="dev01";

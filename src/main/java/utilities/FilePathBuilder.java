@@ -2,7 +2,7 @@ package utilities;
 
 import java.io.File;
 
-import environmentInfo.EnvironementInformation;
+import environmentinfo.EnvironementInformation;
 
 public class FilePathBuilder {
 

@@ -25,8 +25,8 @@ import org.testng.Assert;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-import baseFrameWork.DriverFactory;
-import baseFrameWork.ExtentFactory;
+import baseframework.DriverFactory;
+import baseframework.ExtentFactory;
 
 public class GenericActions {
 	ExtentTest logger;
@@ -48,12 +48,12 @@ public class GenericActions {
 	public void click(WebElement element, String fieldName) {
 		try {
 			logger = ExtentFactory.getInstance().getExtent();
-			// waitForElementAndThenClick(element);
+
 			element.click();
 			logger.log(Status.PASS, fieldName + "==> Clicked Successfully! ");
 		} catch (Exception e) {
 
-			logger.log(Status.FAIL, "Unable to click on field: " + fieldName + " due to exception: " + e);
+			logger.log(Status.FAIL, "Unable to click on field: " + fieldName + " due to exception in: " + e);
 		}
 	}
 
@@ -64,7 +64,7 @@ public class GenericActions {
 			Thread.sleep(250);
 			logger.log(Status.PASS, fieldName + "==> Data Cleared Successfully! ");
 		} catch (Exception e) {
-			logger.log(Status.FAIL, "Unable to clear Data on field: " + fieldName + " due to exception: " + e);
+			logger.log(Status.FAIL, "Unable to clear Data on field: " + fieldName + " due to exception in the : " + e);
 
 		}
 	}
@@ -79,7 +79,7 @@ public class GenericActions {
 			logger.log(Status.PASS, fieldName + fieldName + "==> Mouse hovered Successfully! ");
 			Thread.sleep(1000);
 		} catch (Exception e) {
-			logger.log(Status.FAIL, "Unable to hover mouse on field: " + fieldName + " due to exception: " + e);
+			logger.log(Status.FAIL, "Unable to hover mouse on field: " + fieldName + " becuase of exception: " + e);
 
 		}
 	}
@@ -99,7 +99,7 @@ public class GenericActions {
 	}
 
 	public void selectDropDownByVisibleText(WebElement element, String fieldName, String ddVisibleText)
-			throws Throwable {
+			 {
 		try {
 			logger = ExtentFactory.getInstance().getExtent();
 			Select s = new Select(element);
@@ -111,7 +111,7 @@ public class GenericActions {
 		}
 	}
 
-	public void selectDropDownByValue(WebElement element, String fieldName, String ddValue) throws Throwable {
+	public void selectDropDownByValue(WebElement element, String fieldName, String ddValue)  {
 		try {
 			logger = ExtentFactory.getInstance().getExtent();
 			Select s = new Select(element);
@@ -122,7 +122,7 @@ public class GenericActions {
 		}
 	}
 
-	public void assertEqualsString(String expvalue, String actualValue, String locatorName) throws Throwable {
+	public void assertEqualsString(String expvalue, String actualValue, String locatorName)  {
 		try {
 			if (actualValue.equals(expvalue)) {
 				ExtentFactory.getInstance().getExtent().log(Status.PASS, "String Assertion is successful on field "
@@ -253,13 +253,13 @@ public class GenericActions {
 	}
 
 	public void swithToNewTabCloseTheCurrentTab() {
-		WebDriver driver = DriverFactory.getInstance().getDriver();
-		String currentWindow = driver.getWindowHandle();
+		WebDriver switchdriver = DriverFactory.getInstance().getDriver();
+		String currentWindow = switchdriver.getWindowHandle();
 		waitForBrowser(2);
-		Set<String> tabs = driver.getWindowHandles();
+		Set<String> tabs = switchdriver.getWindowHandles();
 		tabs.remove(currentWindow);
-		driver.close();
-		driver.switchTo().window((String) tabs.toArray()[0]);
+		switchdriver.close();
+		switchdriver.switchTo().window((String) tabs.toArray()[0]);
 
 	}
 
@@ -279,7 +279,7 @@ public class GenericActions {
 		return RandomStringUtils.randomNumeric(6);
 	}
 
-	public void waitForFrameAndMoveToFrame(String frameId, WebDriver driver) {
+	public void waitForFrameAndMoveToFrame(String frameId) {
 		fluentWait().until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameId));
 
 	}
@@ -348,9 +348,9 @@ public class GenericActions {
 
 	}
 
-	public List<String> gettextFromListOFWebElements(List<WebElement> WebElements) {
+	public List<String> gettextFromListOFWebElements(List<WebElement> webElements) {
 		List<String> values = new ArrayList<>();
-		for (WebElement ele : WebElements) {
+		for (WebElement ele : webElements) {
 			values.add(ele.getText());
 		}
 		return values;

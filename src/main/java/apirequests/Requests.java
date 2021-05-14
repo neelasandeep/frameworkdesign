@@ -4,6 +4,9 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 public class Requests {
 	static Response response;
+	private Requests() {
+		
+	}
 	public static  Response getRequest(String endpoint) {
 		return  given().when().get(endpoint);
 	}
