@@ -7,8 +7,8 @@
 	<test name="Test">
 		<parameter name="testdata" value="UI" />
 		<classes>
-			<class name="automationScripts.Testcase1" />
-			<!-- <class name="automationScripts.parallelUIcheck" /> -->
+			<class name="automationscripts.Testcase1" />
+			<!-- <class name="automationccripts.parallelUIcheck" /> -->
 		</classes>
 	</test>
 	<!-- Test -->

@@ -7,33 +7,33 @@
 	 <test  name="Test">
 		<parameter name="testdata" value="UI" />
 		<classes>
-			<class name="automationScripts.Testcase1" />
+			<class name="automationscripts.Testcase1" />
 			<!-- <class name="automationScripts.parallelUIcheck" /> -->
 		</classes>
 	</test>
 		<!--  <test  name="JsonDatacheck">
 		<parameter name="testdata" value="jsondata.json" />
 		<classes>
-			<class name="automationScripts.Testcase2" />
+			<class name="automationscripts.Testcase2" />
 		</classes>
 	</test> -->
 	<!-- <test  name="YAMLDatacheck">
 		<parameter name="testdata" value="yamldata.yml" />
 		<classes>
-			<class name="automationScripts.Testcase3YML" />
+			<class name="automationscripts.Testcase3YML" />
 		</classes>
 	</test>
 	<test  name="Exceldatacheck">
 		<parameter name="testdata" value="exceldata.xlsx" />
 		<parameter name="sheetname" value="testcase" />
 		<classes>
-			<class name="automationScripts.ExcelTest" />
+			<class name="automationscripts.ExcelTest" />
 		</classes>
 	</test> 
 	<test  name="bddapi">
 		
 		<classes>
-			<class name="apitestRunner.Runner" />
+			<class name="apitestrunner.Runner" />
 		</classes>
 	</test> -->
 	
