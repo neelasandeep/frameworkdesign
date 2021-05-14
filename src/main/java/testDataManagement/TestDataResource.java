@@ -4,7 +4,7 @@ import constants.Dataconstants;
 import customExceptions.TestDataException;
 
 public class TestDataResource {
-	public static TestData testData;
+	 static  TestData testData;
 
 	public static void setTestData(String inputFileName, String sheetName) {
 		if (inputFileName.contains(Dataconstants.JSON)) {

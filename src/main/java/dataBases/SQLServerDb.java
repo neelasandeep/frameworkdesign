@@ -12,6 +12,9 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.zaxxer.hikari.HikariDataSource;
 
 import constants.ApplicationConstants;
@@ -20,11 +23,12 @@ import models.dbModel.DatabaseModel;
 import utilities.PropertiesUtility;
 
 public class SQLServerDb {
+	private static Logger logger = LogManager.getLogger();
 
 	private static String dbServerIP;
 	private static String dbPort;
 	private static String username;
-	private static String password;
+	private static String pwdd;
 	private static String dbName;
 
 	ResultSet rs;
@@ -34,14 +38,14 @@ public class SQLServerDb {
 		dbServerIP = PropertiesUtility.getProperty(ApplicationConstants.SERVER);
 		dbPort = PropertiesUtility.getProperty(ApplicationConstants.PORT);
 		username = PropertiesUtility.getProperty(ApplicationConstants.USERNAME);
-		password = PropertiesUtility.getProperty(ApplicationConstants.PASSWORD);
+		pwdd = PropertiesUtility.getProperty(ApplicationConstants.PWDD);
 		dbName = PropertiesUtility.getProperty(ApplicationConstants.DBNAME);
 		try {
 
 			dataSource = new HikariDataSource();
 			dataSource.setJdbcUrl(getFormatttedURL());
 			dataSource.setUsername(username);
-			dataSource.setPassword(password);
+			dataSource.setPassword(pwdd);
 
 			dataSource.setMinimumIdle(1);
 			dataSource.setMaximumPoolSize(2);// The maximum number of connections, idle or busy, that can be present in
@@ -51,7 +55,7 @@ public class SQLServerDb {
 			dataSource.setIdleTimeout(60000);
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.info(e);
 		}
 	}
 
@@ -61,15 +65,16 @@ public class SQLServerDb {
 
 	public List<DatabaseModel> executeQuery(String sql) {
 		List<DatabaseModel> resultList = new ArrayList<>();
-		try (Connection connection = fromConnectionPool().getConnection();) {
+		try (Connection connection = fromConnectionPool().getConnection();
+				Statement stmt = connection.createStatement();) {
 
 			System.out.println(connection.getClass());
-			Statement stmt = connection.createStatement();
+			
 			rs = stmt.executeQuery(sql);
 			resultList.addAll(buildDataModelFromResult(rs));
 
 		} catch (Exception e) {
-			System.out.println(e);
+			logger.info(e);
 		}
 		return resultList;
 
@@ -83,7 +88,7 @@ public class SQLServerDb {
 			}
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			logger.info(e);
 		}
 		return resultlist;
 	}
@@ -111,7 +116,7 @@ public class SQLServerDb {
 			}
 
 		} catch (SQLException e) {
-
+			logger.info(e);
 		}
 
 		return dbModel;
@@ -120,13 +125,14 @@ public class SQLServerDb {
 
 	public int executeUpdate(String sql) {
 		int result = 0;
-		try (Connection connection = fromConnectionPool().getConnection();) {
+		try (Connection connection = fromConnectionPool().getConnection();
+				Statement stmt = connection.createStatement();) {
 
-			Statement stmt = connection.createStatement();
+			
 			result = stmt.executeUpdate(sql);
 
 		} catch (Exception e) {
-			System.out.println(e);
+			logger.info(e);
 		}
 		return result;
 
@@ -134,8 +140,8 @@ public class SQLServerDb {
 
 	public static String getFormatttedURL() {
 		String dburl = String.format("jdbc:sqlserver://%s:%s;user=%s;password=%s;databaseName=%s", dbServerIP, dbPort,
-				dbName, username, password);
-		System.out.println(dburl);
+				dbName, username, pwdd);
+		logger.info(dburl);
 		return dburl;
 
 	}

@@ -1,4 +1,4 @@
-package UIActions;
+package uiactions;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -243,12 +243,12 @@ public class GenericActions {
 		return ele.isDisplayed();
 	}
 
-	public void waitForBrowser(int time) {
+	public void waitForBrowser(long time) {
 		try {
 			Thread.sleep(time * 1000);
 		} catch (InterruptedException e) {
 
-			e.printStackTrace();
+			logger.log(Status.FAIL, "Dropdown value not selected for field: due to exception: " + e);
 		}
 	}
 

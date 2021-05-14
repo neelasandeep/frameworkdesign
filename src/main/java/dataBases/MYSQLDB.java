@@ -12,6 +12,9 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.zaxxer.hikari.HikariDataSource;
 
 import constants.ApplicationConstants;
@@ -19,7 +22,8 @@ import constants.SqlConstants;
 import models.dbModel.DatabaseModel;
 import utilities.PropertiesUtility;
 
- class MySqlDb implements DataBase {
+class MySqlDb implements DataBase {
+	private static Logger logger = LogManager.getLogger();
 	MySqlDb() {
 	}
 
@@ -36,7 +40,7 @@ import utilities.PropertiesUtility;
 		dbServerIP = PropertiesUtility.getProperty(ApplicationConstants.SERVER);
 		dbPort = PropertiesUtility.getProperty(ApplicationConstants.PORT);
 		username = PropertiesUtility.getProperty(ApplicationConstants.USERNAME);
-		password = PropertiesUtility.getProperty(ApplicationConstants.PASSWORD);
+		password = PropertiesUtility.getProperty(ApplicationConstants.PWDD);
 		dbName = PropertiesUtility.getProperty(ApplicationConstants.DBNAME);
 		try {
 
@@ -55,25 +59,26 @@ import utilities.PropertiesUtility;
 			dataSource.setIdleTimeout(60000);
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.info(e);
 		}
 	}
 
-	public  DataSource fromConnectionPool() {
+	public DataSource fromConnectionPool() {
 		return dataSource;
 	}
 
 	public List<DatabaseModel> executeQuery(String sql) {
 		List<DatabaseModel> resultList = new ArrayList<>();
-		try (Connection connection = fromConnectionPool().getConnection();) {
+		try (Connection connection = fromConnectionPool().getConnection();
+				Statement stmt = connection.createStatement();) {
 
 			System.out.println(connection.getClass());
-			Statement stmt = connection.createStatement();
+
 			rs = stmt.executeQuery(sql);
 			resultList.addAll(buildDataModelFromResult(rs));
 
 		} catch (Exception e) {
-			System.out.println(e);
+			logger.info(e);
 		}
 		return resultList;
 
@@ -87,7 +92,7 @@ import utilities.PropertiesUtility;
 			}
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			logger.info(e);
 		}
 		return resultlist;
 	}
@@ -115,7 +120,7 @@ import utilities.PropertiesUtility;
 			}
 
 		} catch (SQLException e) {
-
+			logger.info(e);
 		}
 
 		return dbModel;
@@ -124,13 +129,13 @@ import utilities.PropertiesUtility;
 
 	public int executeUpdate(String sql) {
 		int result = 0;
-		try (Connection connection = fromConnectionPool().getConnection();) {
+		try (Connection connection = fromConnectionPool().getConnection();
+				Statement stmt = connection.createStatement();) {
 
-			Statement stmt = connection.createStatement();
 			result = stmt.executeUpdate(sql);
 
 		} catch (Exception e) {
-			System.out.println(e);
+			logger.info(e);
 		}
 		return result;
 
@@ -138,7 +143,7 @@ import utilities.PropertiesUtility;
 
 	public static String getFormatttedURL() {
 		String dburl = String.format("jdbc:mysql://%s:%s/%s?", dbServerIP, dbPort, dbName);
-		System.out.println(dburl);
+		logger.info(dburl);;
 		return dburl;
 
 	}

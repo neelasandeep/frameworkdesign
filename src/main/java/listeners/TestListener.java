@@ -22,21 +22,21 @@ import baseFrameWork.ExtentReportNG;
 
 public class TestListener implements ITestListener {
 
-	 public static   ExtentReports report =ExtentReportNG.setupExtentReport();
+	 public static  final ExtentReports report =ExtentReportNG.setupExtentReport();
 	
 	ExtentTest test;
 
  
 	public void onTestStart(ITestResult result ) {
 		// before each test case
-		if(result.getMethod().getMethodName()!="feature") {
+		if(!result.getMethod().getMethodName().equals("feature")) {
 		test = report.createTest(result.getMethod().getMethodName());
 		ExtentFactory.getInstance().setExtent(test);
 		}
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		if(result.getMethod().getMethodName()!="feature") {
+		if(!result.getMethod().getMethodName().equals("feature")) {
 		ExtentFactory.getInstance().getExtent().log(Status.PASS,
 				"Test Case: " + result.getMethod().getMethodName() + " is Passed.");
 		ExtentFactory.getInstance().removeExtentObject();

@@ -13,7 +13,7 @@ public class ApplicationConstants {
 	public static final String PORT="dbPort";
 	public static final String DBNAME="dbName";
 	public static final String USERNAME="username";
-	public static final String PASSWORD="password";
+	public static final String PWDD="password";
 	public static final String DBQUERY="dataquery";
 	public static final String TESTINGTYPE="testingtype";
 	public static final String APIQUERY="apiquery";
