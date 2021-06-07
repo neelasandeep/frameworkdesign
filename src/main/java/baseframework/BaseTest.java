@@ -39,6 +39,7 @@ public abstract class BaseTest {
 		String dbname = PropertiesUtility.getProperty(ApplicationConstants.DBNAME2);
 		String dbaddress = PropertiesUtility.getProperty(ApplicationConstants.DBADDRESS);
 		System.out.println(browser1);
+		System.out.println(Test);
 		System.out.println(dbname);
 		System.out.println(dbaddress);
 		String env=System.getProperty("Environment");
