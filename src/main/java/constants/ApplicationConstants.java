@@ -21,5 +21,6 @@ public class ApplicationConstants {
 	public static final String SAFARI="safari";
 	public static final String DBNAME2="Dbname";
 	public static final String DBADDRESS="dbaddress";
+	public static final String FIREFOX="FireFoxBrowser";
 
 }

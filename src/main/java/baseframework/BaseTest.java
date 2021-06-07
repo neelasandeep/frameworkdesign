@@ -33,7 +33,8 @@ public abstract class BaseTest {
 	public void setup() {
 
 		String browser = PropertiesUtility.getProperty(ApplicationConstants.BROWSER);
-		//String url = PropertiesUtility.getProperty(ApplicationConstants.URL);
+		String Test = PropertiesUtility.getProperty(ApplicationConstants.FIREFOX);
+		logger.info("calling firefox",Test);
 		String browser1 = PropertiesUtility.getProperty(ApplicationConstants.SAFARI);
 		String dbname = PropertiesUtility.getProperty(ApplicationConstants.DBNAME2);
 		String dbaddress = PropertiesUtility.getProperty(ApplicationConstants.DBADDRESS);
