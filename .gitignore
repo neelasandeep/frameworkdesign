@@ -1,1 +1,14 @@
-/target/
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+.settings
+.loadpath
+.recommenders
+target
+.classpath
+*.project
+.settings
+test-output
